@@ -15,10 +15,10 @@ const Counter = () => {
         setValue(value - 1);
     };
     return (
-        <div className="flex gap-10">
-            <button onClick={decrement}>-</button>
-            <button>{value}</button>
-            <button onClick={increment}>+</button>
+        <div className="flex gap-3">
+            <button onClick={decrement} className="bg-purple-700 text-white rounded p-3">-</button>
+            <button className="bg-purple-500 text-white rounded p-3">{value}</button>
+            <button onClick={increment} className="bg-purple-700 text-white rounded p-3">+</button>
         </div>
     );
 };
