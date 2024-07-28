@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow p-3">
-        <Button> Click me!</Button>
+
       </main>
       <Footer />
     </div>
