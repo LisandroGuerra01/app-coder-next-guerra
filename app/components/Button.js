@@ -1,6 +1,6 @@
 import React from "react";
 
-const Boton = ({ children, className='', ...args }) => {
+const Button = ({ children, className='', ...args }) => {
   return (
     <button className={`rounded-xl py-2 px-3 bg-blue-400 text-center text-white ${className}`} {...args}>
       {children}
@@ -8,4 +8,4 @@ const Boton = ({ children, className='', ...args }) => {
   );
 };
 
-export default Boton;
+export default Button;

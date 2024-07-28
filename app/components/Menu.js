@@ -10,7 +10,7 @@ const Menu = () => {
     
     return (
         <div onClick={handleOpen}>
-            <Image src={'/Recurso 8@2x.png'} alt='menu-logo' height={40} width={40}/>
+            <Image src={'/boton-hamb.png'} alt='menu-logo' height={40} width={60}/>
             <MenuList handleClose={handleClose} open={open} />
         </div>
     );

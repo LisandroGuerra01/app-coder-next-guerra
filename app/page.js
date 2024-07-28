@@ -5,12 +5,16 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
-import Boton from "./components/Boton";
+import Button from "./components/Button";
 
 export default function Home() {
   return (
-    <div className="flex">      
-    <Navbar />
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow p-3">
+        <Button> Click me!</Button>
+      </main>
+      <Footer />
     </div>
   );
 }
