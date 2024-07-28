@@ -1,12 +1,13 @@
 import React from 'react';
 import Image from "next/image";
 import Menu from './Menu';
+import Link from 'next/link';
 
 const Navbar = () => {
     return (
         <div className='w-full bg-gray-600'>
             <div className='container m-auto py-4 flex justify-between items-center'>
-                <a href="./"><Image src={'/logo-claro.png'} alt='logo' height={100} width={75} /></a>
+                <Image src={'/gg-logo-transparent.png'} alt='logo' height={100} width={75} />
                 <div className=''>
                 </div>
                 <Menu />
