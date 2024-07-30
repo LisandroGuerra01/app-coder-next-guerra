@@ -2,22 +2,31 @@ import React from 'react';
 import Image from "next/image";
 import Menu from './Menu';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation'
+
+const links = [
+    { href: './', label: 'Inicio' },
+    { href: './products', label: 'Productos' },
+    { href: './contact', label: 'Contacto' },
+    { href: './FAQ', label: 'FAQ' },
+];
 
 const Navbar = () => {
+
+    const pathname = usePathname();
+
     return (
-        <div className='w-full bg-gray-600'>
+        <div className='w-full bg-indigo-950'>
             <div className='container m-auto py-4 flex justify-between items-center'>
                 <Image src={'/gg-logo-transparent.png'} alt='logo' height={100} width={75} />
-                <div className=''>
+                <div className='flex gap-4 text-white'>
+                    {links.map(link => {
+                        return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold' : 'font-bold'} text-base text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
+                    }
+                    )}
                 </div>
-                <Menu />
             </div>
             <hr />
-            <div className='flex justify-center gap-4 text-white'>
-                <a href="./products" className="hover:bg-white">Productos</a>
-                <a href="./contact" className="hover:bg-white">Contacto</a>
-                <a href="./contact" className="hover:bg-white">Productos</a>
-            </div>
         </div>
     )
 }

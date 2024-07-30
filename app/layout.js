@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Aplicación de Estudio Contable Contadores Net",
+  title: "Groide Gaming - Ecommerce de computacion",
   description: "Aplicación hecha en next por estudiante de CoderHouse",
   openGraph: {
     title: "",

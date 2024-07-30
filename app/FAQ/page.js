@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className="flex-grow p-3 text-center">
-        PRODUCTOS!!!
+        PAG EN CONSTRUCCION!!!
       </div>
       <Footer />
     </div>
