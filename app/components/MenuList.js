@@ -2,7 +2,7 @@ import React from "react";
 
 const MenuList = ({ open, handleClose }) => {
     return (
-        <div className={`${open ? 'opacity-85 visible' : 'invisible'} transition-all fixed insec-0 bg-black/50 flex justify-end`}>
+        <div className={`${open ? 'opacity-85 visible' : 'invisible'} transition-all fixed insec-0 bg-black/50 flex`}>
             <aside className={`${!open ? 'translate-y-6' : ''} transition-all w-48 bg-indigo-700`}>
                 <div onClick={handleClose} className="text-white p-2 hover:text-gray-300 text-right">
                     X

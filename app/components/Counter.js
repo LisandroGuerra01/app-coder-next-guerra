@@ -1,24 +1,16 @@
 'use client';
-import React, { useState } from "react";
+import Button from './Button'
 
-const Counter = () => {
-    const [value, setValue] = useState(0);
+const Counter = ({ counter, setCounter, max }) => {
 
-    const increment = () => {
-        setValue(value + 1);
-    };
+    const increase = () => { counter < max && setCounter(counter + 1) };
+    const decrease = () => { counter > 1 && setCounter(counter - 1) };
 
-    const decrement = () => {
-        if (value === 0) {
-            return;
-        }
-        setValue(value - 1);
-    };
     return (
-        <div className="flex gap-3">
-            <button onClick={decrement} className="bg-purple-700 text-white rounded p-3">-</button>
-            <button className="bg-purple-500 text-white rounded p-3">{value}</button>
-            <button onClick={increment} className="bg-purple-700 text-white rounded p-3">+</button>
+        <div className="flex items-center gap-3">
+            <Button onClick={decrease} className="active:bg-blue-600">-</Button>
+            <p>{counter}</p>
+            <Button onClick={increase} className="active:bg-blue-600">+</Button>
         </div>
     );
 };
