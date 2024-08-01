@@ -1,13 +1,13 @@
-imrpot Image from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
-const ProductCard = ({ item }) => {
+const  ProductCard = ({ item }) => {
     return (
         <article className="basis-72 shadow-lg rounded">
             <Link href={`/products/detail/${item.slug}`} className='flex flex-col'>
                 <Image
                     alt={item.title}
-                    src={ }
+                    src={`/gg-logo.png`}
                     width={300}
                     height={300}
                     style={{ objectFit: "contain" }}
