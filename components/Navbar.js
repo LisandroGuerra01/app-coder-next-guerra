@@ -9,7 +9,7 @@ const links = [
     { href: './', label: 'Inicio' },
     { href: './products', label: 'Productos' },
     { href: './contact', label: 'Contacto' },
-    { href: './FAQ', label: 'FAQ' },
+    { href: './FAQ', label: 'FAQ' }
 ];
 
 const Navbar = () => {
