@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-indigo-950 mt-10">
+    <footer className="w-full bg-indigo-950">
       <div className="container m-auto py-3 gap-3 text-sm text-gray-300 flex flex-col items-center">
         <Image src="/gg-logo-white-transparent.png" alt="Logo" width={100} height={50} />
         <div className="flex gap-3">

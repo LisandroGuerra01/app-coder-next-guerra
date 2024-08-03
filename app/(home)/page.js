@@ -2,10 +2,8 @@
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow p-3">
-        
-      </main>
+    <div className="flex min-h-screen bg-indigo-300">
+
     </div>
   );
 }
