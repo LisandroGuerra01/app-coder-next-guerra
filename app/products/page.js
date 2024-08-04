@@ -1,18 +1,7 @@
-import CategoriesMenu from "@/components/products/CategoriesMenu";
-import ProductList from "@/components/products/ProductList";
+import { redirect } from "next/navigation"
 
 const Products = () => {
-    return (
-        <>
-            <main className="container m-auto">
-                <h2 className="text-2x1 my-10 border-b pb-4">Productos</h2>
-                <div className="flex gap-10">
-                    <CategoriesMenu />
-                    <ProductList />
-                </div>
-            </main>
-        </>
-    )
+    redirect('/products/all')
 }
 
 export default Products;

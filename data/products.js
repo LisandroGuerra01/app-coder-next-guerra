@@ -29,10 +29,10 @@ export const mockData = [
     {
         title: "product 4",
         description: "desc prod 4",
-        stock: 40,
+        stock: 5,
         price: 400,
         slug: "product-4",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/boton-hamb.png",
         category: "gabinetes"
     },
     {

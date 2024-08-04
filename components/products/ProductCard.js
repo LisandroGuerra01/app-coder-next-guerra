@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const  ProductCard = ({ item }) => {
+const  ProductCard = ({ item, category }) => {
     return (
         <article className="basis-72 shadow-lg rounded bg-grey-600">
-            <Link href={`/products/detail/${item.slug}`} className='flex flex-col'>
+            <Link href={`/products/${category}/${item.slug}`} className='flex flex-col'>
                 <Image
                     alt={item.title}
                     src={`/gg-logo.png`}

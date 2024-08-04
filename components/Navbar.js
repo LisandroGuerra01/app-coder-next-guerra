@@ -5,16 +5,16 @@ import Menu from './Menu';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 
-const links = [
-    { href: './', label: 'Inicio' },
-    { href: './products', label: 'Productos' },
-    { href: './contact', label: 'Contacto' },
-    { href: './FAQ', label: 'FAQ' }
-];
 
 const Navbar = () => {
 
-    const pathname = usePathname();
+    const links = [
+        { href: '/', label: 'Inicio' },
+        { href: '/products', label: 'Productos' },
+        { href: '/contact', label: 'Contacto' },
+        { href: '/FAQ', label: 'FAQ' }
+    ];
+    const pathname = usePathname();    
 
     return (
         <div className='w-full bg-indigo-950'>
