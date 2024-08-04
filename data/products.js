@@ -1,11 +1,11 @@
 export const mockData = [
     {
-        title: "product 1",
-        description: "desc prod 1",
+        title: "Monitor Curvo Gamer Samsung 24 G50 144Hz Full HD VA FreeSync",
+        description: "Tamaño de la pantalla: 24, Full HD",
         stock: 10,
-        price: 100,
-        slug: "product-1",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        price: 285000,
+        slug: "samsung-curvo-gamer-24",
+        image: "/monitor-samsung-24.png",
         category: "monitores"
     },
     {
@@ -14,7 +14,7 @@ export const mockData = [
         stock: 20,
         price: 200,
         slug: "product-2",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "monitores"
     },
     {
@@ -23,7 +23,7 @@ export const mockData = [
         stock: 30,
         price: 300,
         slug: "product-3",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "monitores"
     },
     {
@@ -32,7 +32,7 @@ export const mockData = [
         stock: 5,
         price: 400,
         slug: "product-4",
-        image: "/boton-hamb.png",
+        image: "/monitor-samsung-24.png",
         category: "gabinetes"
     },
     {
@@ -41,7 +41,7 @@ export const mockData = [
         stock: 50,
         price: 500,
         slug: "product-5",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "gabinetes"
     },
     {
@@ -50,7 +50,7 @@ export const mockData = [
         stock: 60,
         price: 600,
         slug: "product-6",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "gabinetes"
     },
     {
@@ -59,7 +59,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-7",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mouse"
     },
     {
@@ -68,7 +68,7 @@ export const mockData = [
         stock: 80,
         price: 800,
         slug: "product-8",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mouse"
     },
     {
@@ -77,7 +77,7 @@ export const mockData = [
         stock: 90,
         price: 900,
         slug: "product-9",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mouse"
     },
     {
@@ -86,7 +86,7 @@ export const mockData = [
         stock: 100,
         price: 1000,
         slug: "product-10",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "teclados"
     },
     {
@@ -95,7 +95,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-11",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "teclados"
     },
     {
@@ -104,7 +104,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-12",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "teclados"
     },
     {
@@ -113,7 +113,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-13",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "auriculares"
     },
     {
@@ -122,7 +122,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-14",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "auriculares"
     },
     {
@@ -131,7 +131,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-15",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "auriculares"
     },
     {
@@ -140,7 +140,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-16",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mandos"
     },
     {
@@ -149,7 +149,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-17",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mandos"
     },
     {
@@ -158,7 +158,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-18",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "mandos"
     },
     {
@@ -167,7 +167,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-19",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "placas"
     },
     {
@@ -176,7 +176,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-20",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "placas"
     },
     {
@@ -185,7 +185,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-21",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "placas"
     },
     {
@@ -194,7 +194,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-22",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "motherboards"
     },
     {
@@ -203,7 +203,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-23",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "motherboards"
     },
     {
@@ -212,7 +212,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-24",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "motherboards"
     },
     {
@@ -221,7 +221,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-25",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "ram"
     },
     {
@@ -230,7 +230,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-26",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "ram"
     },
     {
@@ -239,7 +239,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-27",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "ram"
     },
     {
@@ -248,7 +248,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-28",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "discos"
     },
     {
@@ -257,7 +257,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-29",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "discos"
     },
     {
@@ -266,7 +266,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-30",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "discos"
     },
     {
@@ -275,7 +275,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-31",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "fuentes"
     },
     {
@@ -284,7 +284,7 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-32",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "fuentes"
     },
     {
@@ -293,7 +293,8 @@ export const mockData = [
         stock: 70,
         price: 700,
         slug: "product-33",
-        image: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        image: "/monitor-samsung-24.png",
         category: "fuentes"
     },
+    
 ]

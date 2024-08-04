@@ -7,16 +7,15 @@ const  ProductCard = ({ item, category }) => {
             <Link href={`/products/${category}/${item.slug}`} className='flex flex-col'>
                 <Image
                     alt={item.title}
-                    src={`/gg-logo.png`}
+                    src={item.image}
                     width={300}
                     height={300}
                     style={{ objectFit: "contain" }}
                 />
 
-                <div className="px-4 border-t border-gray-200">
-                    <h4 className="text-sm my-4">{item.title}</h4>
-                    <p className="font-bold">{item.description}</p>
-                    <p className="text-2x1 font-semibold mb-6">$ {item.price}</p>
+                <div className="px-4 border-t border-gray-200 text-gray-300 bg-gradient-to-r from-sky-500 to-indigo-500">
+                    <h4 className="text-lg font-bold my-4">{item.title}</h4>
+                    <p className="text-2xl font-semibold text-lg mb-6 text-orange-300">$ {item.price}</p>
                 </div>
             </Link>
         </article>
