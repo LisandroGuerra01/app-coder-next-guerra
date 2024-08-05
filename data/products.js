@@ -1,6 +1,6 @@
 export const mockData = [
     {
-        title: "Monitor Curvo Gamer Samsung 24 G50 144Hz Full HD VA FreeSync",
+        title: "Monitor Curvo Gamer Samsung 24 144Hz Full HD FreeSync",
         description: "Tamaño de la pantalla: 24, Full HD",
         stock: 10,
         price: 285000,
@@ -9,21 +9,21 @@ export const mockData = [
         category: "monitores"
     },
     {
-        title: "product 2",
-        description: "desc prod 2",
+        title: "Monitor Gamer LG 20 VGA HDMI",
+        description: "Tamaño de la pantalla: 20,HD, LED, HDMI y VGA",
         stock: 20,
-        price: 200,
-        slug: "product-2",
-        image: "/monitor-samsung-24.png",
+        price: 112000,
+        slug: "lg-gamer-20",
+        image: "/monitor-lg-20.png",
         category: "monitores"
     },
     {
-        title: "product 3",
-        description: "desc prod 3",
-        stock: 30,
-        price: 300,
-        slug: "product-3",
-        image: "/monitor-samsung-24.png",
+        title: "Monitor Gamer ASUS TUF 27 WQHD 2K 170Hz 1ms FreeSync Premium",
+        description: "Tamaño de la pantalla: 27, 170Hz, 1ms",
+        stock: 10,
+        price: 440000,
+        slug: "asus-gamer-27",
+        image: "/monitor-asus-27.png",
         category: "monitores"
     },
     {

@@ -7,14 +7,14 @@ const ProductDetail = ({ slug }) => {
     const item = mockData.find(p => p.slug === slug);
 
     return (
-        <div className="max-w-4xl m-auto">
+        <div className="max-w-4xl m-auto p-5">
             <section className="flex gap-8">
                 <div className="relative basis-1/2">
                     <Image
-                        src={item.image}
+                        src={`/products${item.image}`}
                         alt={item.title}
-                        width={860}
-                        height={860}
+                        width={700}
+                        height={700}
                     />
                 </div>
                 <div className="basis-1/2">
@@ -27,7 +27,7 @@ const ProductDetail = ({ slug }) => {
             </section>
             <section className="mt-12">
                 <h3 className="text-xl font-semibold border-b border-gray-200 pb-4 my-4">Descripción</h3>
-                <p className="text-gray-600">{item.description}</p>"
+                <p className="text-gray-600">{item.description}</p>
             </section>
         </div>
     )

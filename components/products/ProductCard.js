@@ -7,7 +7,7 @@ const  ProductCard = ({ item, category }) => {
             <Link href={`/products/${category}/${item.slug}`} className='flex flex-col'>
                 <Image
                     alt={item.title}
-                    src={item.image}
+                    src={`/products${item.image}`}
                     width={300}
                     height={300}
                     style={{ objectFit: "contain" }}
