@@ -13,7 +13,7 @@ const links = [
     { label: "Placas de video", href: "/products/placas" },
     { label: "Motherboards", href: "/products/motherboards" },
     { label: "Memorias RAM", href: "/products/ram" },
-    { label: "Discos Duros", href: "/products/discos" },
+    { label: "Discos", href: "/products/discos" },
     { label: "Fuentes", href: "/products/fuentes" },
 ]
 

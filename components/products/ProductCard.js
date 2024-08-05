@@ -11,6 +11,7 @@ const  ProductCard = ({ item, category }) => {
                     width={300}
                     height={300}
                     style={{ objectFit: "contain" }}
+                    className='p-5'
                 />
 
                 <div className="px-4 border-t border-gray-200 text-gray-300 bg-gradient-to-r from-sky-500 to-indigo-500">
