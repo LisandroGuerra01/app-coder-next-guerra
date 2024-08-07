@@ -12,7 +12,7 @@ const links = [
     { label: "Mandos", href: "/products/mandos" },
     { label: "Placas de video", href: "/products/placas" },
     { label: "Motherboards", href: "/products/motherboards" },
-    { label: "Memorias RAM", href: "/products/ram" },
+    { label: "Ram", href: "/products/ram" },
     { label: "Discos", href: "/products/discos" },
     { label: "Fuentes", href: "/products/fuentes" },
 ]
@@ -20,13 +20,13 @@ const links = [
 const CategoriesMenu = () => {
     const pathname = usePathname()
     return (
-        <aside className="flex flex-col gap-3 ">
+        <aside className="flex flex-col gap-3 p-5 ">
             {
                 links.map(link => (
                     <Link
                         key={link.label}
                         href={link.href}
-                        className={`${pathname === link.href ? "font-semibold bg-indigo-700 p-1 ring ring-violet-700" : ""} py-2 rounded-md`}
+                        className={`${pathname === link.href ? "font-semibold bg-indigo-700" : ""} px-2 rounded-xl transition ease-in-out delay-50 hover:translate-x-2 hover:scale-110 hover:bg-indigo-500 duration-300`}
                     >
                         {link.label}
                     </Link>
