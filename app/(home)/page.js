@@ -1,12 +1,8 @@
-import Image from "next/image";
+import React from 'react';
+import UnderConstructionPage from '../../components/UnderConstructionPage';
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen bg-indigo-300">
-      <header>
-        
+const Home = () => {
+  return <UnderConstructionPage />;
+};
 
-      </header>
-    </div>
-  );
-}
+export default Home;
