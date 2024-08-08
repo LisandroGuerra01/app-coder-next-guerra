@@ -4,8 +4,7 @@ import Image from "next/image";
 import Menu from './Menu';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
-import { Icon } from '../app/icons';
+import { FaShoppingCart } from 'react-icons/fa';
 
 
 const Navbar = () => {
@@ -37,7 +36,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex gap-1'>
                     <Link href={'/cart'} className=''>
-                        <Icon icon={faCartShopping} />
+                        <span className='text-slate-300'><FaShoppingCart size={30} /></span>
                         {/* <Image src={"/cart-shopping-solid.png"} alt='cart-icon' height={30} width={30} /> */}
                     </Link>|
                     <Link href={'/admin'} className='text-base text-slate-300 hover:underline rounded-lg'>Admin</Link>
