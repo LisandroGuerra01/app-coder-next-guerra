@@ -21,19 +21,14 @@ const Navbar = () => {
         <div className='w-full bg-indigo-950'>
             <div className='container m-auto p-4 columns-2 flex md:justify-between items-center'>
                 <Link href={'/'}>
-                    <Image src={'/gg-logo-transparent.png'} alt='logo' height={100} width={75} />
+                    <Image src={'/gg-logo-transparent.png'} alt='logo' height={100} width={75} className='invisible md:visible'/>
                 </Link>
-                <div>
-                    <div className='flex gap-4 text-white invisible md:visible'>
+                    <div className='grid inline-grid grid-cols-1 gap-4 text-white md:grid-cols-4'>
                         {links.map(link => {
-                            return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold transition ease-in-out delay-50 translate-x-2 scale-110' : 'font-semibold'} text-base text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
+                            return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold transition ease-in-out delay-50 translate-x-2 scale-110' : 'font-semibold'} text-center text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
                         }
                         )}
                     </div>
-                    <div className='flex visible md:invisible'>
-                        <Menu />
-                    </div>
-                </div>
                 <div className='flex gap-1'>
                     <Link href={'/cart'} className=''>
                         <span className='text-slate-300'><FaShoppingCart size={30} /></span>
