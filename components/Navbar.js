@@ -25,7 +25,7 @@ const Navbar = () => {
                 <div>
                     <div className='flex gap-4 text-white invisible md:visible'>
                         {links.map(link => {
-                            return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold' : 'font-bold'} text-base text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
+                            return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold transition ease-in-out delay-50 translate-x-2 scale-110' : 'font-semibold'} text-base text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
                         }
                         )}
                     </div>

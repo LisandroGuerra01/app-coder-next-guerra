@@ -36,4 +36,4 @@ const CategoriesMenu = () => {
     )
 }
 
-export default CategoriesMenu 
+export default CategoriesMenu
