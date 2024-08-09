@@ -1,8 +1,16 @@
 import React from 'react';
-import UnderConstructionPage from '../../components/UnderConstructionPage';
+import { CategoriesBanner } from '../../components/CategoriesBanner';
+import { Carousel } from '../../components/Carousel';
+import { SponsorsCarousel } from '../../components/SponsorsCarousel';
 
 const Home = () => {
-  return <UnderConstructionPage />;
+  return (
+    <div className='min-h-screen '>
+      <Carousel />
+      <CategoriesBanner />
+      <SponsorsCarousel />
+    </div>
+  )
 };
 
 export default Home;

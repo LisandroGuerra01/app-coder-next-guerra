@@ -14,7 +14,7 @@ const  ProductCard = ({ item, category }) => {
                     className='p-5'
                 />
 
-                <div className="px-4 border-t border-gray-200 text-gray-300 bg-gradient-to-r from-sky-500 to-indigo-500">
+                <div className="px-4 border-t border-gray-200 text-gray-300 bg-gradient-to-r from-sky-500 to-indigo-800">
                     <h4 className="text-lg font-bold my-4">{item.title}</h4>
                     <p className="text-2xl font-semibold text-lg mb-6 text-orange-300">$ {item.price}</p>
                 </div>
