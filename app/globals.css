@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @layer utilities {
-  .animate-slide {
-    animation: slide 40s linear infinite;
+  .animate-scroll {
+    animation: 20s slide linear infinite;
   }
 }
 
 @keyframes slide {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 :root {
