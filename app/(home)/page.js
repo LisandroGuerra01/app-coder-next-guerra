@@ -5,7 +5,7 @@ import { SponsorsCarousel } from '../../components/SponsorsCarousel';
 
 const Home = () => {
   return (
-    <div className='min-h-screen '>
+    <div className='min-h-screen'>
       <Carousel />
       <CategoriesBanner />
       <SponsorsCarousel />

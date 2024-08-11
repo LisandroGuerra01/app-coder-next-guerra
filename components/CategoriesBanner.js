@@ -24,7 +24,7 @@ const categories = [
 
 export const CategoriesBanner = () => {
     return (
-        <div className="flex justify-center gap-5 my-5">
+        <div className="flex justify-center gap-5 my-5 p-5">
             {categories.map((category) => (
                 <Link href={category.href} key={category.label}>
                     <div className="relative w-full transition-transform duration-400 ease-in-out transform hover:scale-105 cursor-pointer hover:bg-gradient-to-r from-sky-500 to-indigo-500 p-5">

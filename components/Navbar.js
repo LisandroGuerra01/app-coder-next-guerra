@@ -13,7 +13,8 @@ const Navbar = () => {
         { href: '/', label: 'Inicio' },
         { href: '/products', label: 'Productos' },
         { href: '/contact', label: 'Contacto' },
-        { href: '/FAQ', label: 'FAQ' }
+        { href: '/faq', label: 'FAQ' },
+        { href: '/posts', label: 'Posts'}
     ];
     const pathname = usePathname();
 
@@ -23,7 +24,7 @@ const Navbar = () => {
                 <Link href={'/'}>
                     <Image src={'/gg-logo-transparent.png'} alt='logo' height={100} width={75} className='invisible md:visible'/>
                 </Link>
-                    <div className='grid inline-grid grid-cols-1 gap-4 text-white md:grid-cols-4'>
+                    <div className='grid inline-grid grid-cols-1 gap-4 text-white md:grid-cols-5'>
                         {links.map(link => {
                             return <Link key={link.label} href={link.href} className={`${pathname === link.href ? 'font-extrabold transition ease-in-out delay-50 translate-x-2 scale-110' : 'font-semibold'} text-center text-slate-300 m-2 p-2 hover:bg-indigo-600 focus:ring rounded-lg focus:ring-indigo-300`}>{link.label}</Link>
                         }
