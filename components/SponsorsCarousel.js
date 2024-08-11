@@ -22,7 +22,7 @@ export const SponsorsCarousel = () => {
                 <Image src={"/sponsor16.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor17.png"} alt="Sponsor 1" height={300} width={267} />
             </div>
-            <div class="flex space-x-4 animate-scroll inline-block">
+            {/* <div class="flex space-x-4 animate-scroll inline-block">
                 <Image src={"/sponsor1.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor3.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor2.png"} alt="Sponsor 1" height={300} width={267} />
@@ -40,7 +40,7 @@ export const SponsorsCarousel = () => {
                 <Image src={"/sponsor15.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor16.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor17.png"} alt="Sponsor 1" height={300} width={267} />
-            </div>
+            </div> */}
         </div>
     );
 };

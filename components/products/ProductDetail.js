@@ -22,7 +22,7 @@ const ProductDetail = ({ slug }) => {
                     <p className="text-lg font-bold mb-4 text-orange-300">${item.price}</p>
                     <p className="text-gray-600 text-xl mb-4">{item.description}</p>
                     <QtySelector item={item} />
-                    <GoBack className="w-full hover:bg-blue-600" />
+                    <GoBack />
                 </div>
             </section>
         </div>
