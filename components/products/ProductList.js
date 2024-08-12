@@ -1,12 +1,16 @@
-import { mockData } from '@/data/products'
+import { mockData } from '@/data/products.js'
 import ProductCard from './ProductCard.js'
 
-const ProductList = ({ category }) => {
+const ProductList = async ({ category }) => {
 
-    const items = category === 'all' ? mockData : mockData.filter(item => item.category === category)
+    const { data: items } = await fetch(
+        `http://localhost:3000/api/products/${category}`,
+        { cache: "no-store" }
+    ).then(res => res.json())
+
     return (
         <div className="container m-auto flex justify-center items-center gap-12 flex-wrap p-5">
-            {items.map(item => <ProductCard key={item.slug} item={item} category={category} />)}
+            {items.map(item => <ProductCard key={item.slug} item={item} />)}
         </div>
     )
 }
