@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import Button from '@/components/Button';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -16,10 +17,16 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes manejar el envío del formulario
-    console.log('Form data:', formData);
+
+    await fetch('http://localhost:3000/api/contact', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
     // Limpiar el formulario después de enviarlo
     setFormData({
       name: '',
@@ -29,7 +36,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 bg-white shadow-md rounded-lg">
+    <form onSubmit={handleSubmit} className=" mx-auto p-4 bg-white shadow-md rounded-lg text-gray-700">
       <div className="mb-4">
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre:</label>
         <input
@@ -65,12 +72,12 @@ const ContactForm = () => {
           className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         />
       </div>
-      <button
+      <Button
         type="submit"
         className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Enviar
-      </button>
+      </Button>
     </form>
   );
 };

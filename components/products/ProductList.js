@@ -1,11 +1,14 @@
-import { mockData } from '@/data/products.js'
 import ProductCard from './ProductCard.js'
 
 const ProductList = async ({ category }) => {
 
     const { data: items } = await fetch(
-        `http://localhost:3000/api/products/${category}`,
-        { cache: "no-store" }
+        `http://localhost:3000/api/products/${category}`, {
+        cache: "force-cache",
+        next: {
+            tags: ["products"],
+        }
+    }
     ).then(res => res.json())
 
     return (

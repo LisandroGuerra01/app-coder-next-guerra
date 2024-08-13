@@ -4,7 +4,10 @@ import QtySelector from "./QtySelector.js";
 import GoBack from "../GoBack.js";
 
 const ProductDetail = ({ slug }) => {
-    const item = mockData.find(p => p.slug === slug);
+    const item = await fetch(`http://localhost:3000/api/products${slug}`, {
+        cache: 'no-store',
+        next: { revalidate: 0 }
+    }).then(res => res.json());
 
     return (
         <div className="max-w-4xl m-auto p-5">
