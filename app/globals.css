@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities {
   .animate-scroll {
-    animation: 20s slide linear infinite;
+    animation: 10s slide linear infinite;
   }
 }
 
@@ -12,7 +12,7 @@
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-152%);
   }
 }
 :root {
