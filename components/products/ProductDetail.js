@@ -1,10 +1,9 @@
-import { mockData } from "@/data/products";
 import Image from "next/image";
 import QtySelector from "./QtySelector.js";
 import GoBack from "../GoBack.js";
 
-const ProductDetail = ({ slug }) => {
-    const item = await fetch(`http://localhost:3000/api/products${slug}`, {
+const ProductDetail = async ({ slug }) => {
+    const { data: item } = await fetch(`http://localhost:3000/api/productsSlug/${slug}`, {
         cache: 'no-store',
         next: { revalidate: 0 }
     }).then(res => res.json());

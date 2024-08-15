@@ -1,4 +1,4 @@
-import ProductCard from './ProductCard.js'
+import ProductCard from './ProductCard'
 
 const ProductList = async ({ category }) => {
 
