@@ -3,7 +3,7 @@
 @tailwind utilities;
 @layer utilities {
   .animate-scroll {
-    animation: 10s slide linear infinite;
+    animation: 20s slide linear infinite;
   }
 }
 

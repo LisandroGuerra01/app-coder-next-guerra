@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export const SponsorsCarousel = () => {
     return (
-        <div class="overflow-hidden w-full nowrap bg-gray-600">
+        <div class="overflow-hidden w-full nowrap bg-gradient-to-r from-sky-500 to-indigo-500">
             <div class="flex space-x-5 animate-scroll inline-block">
                 <Image src={"/sponsor1.png"} alt="Sponsor 1" height={300} width={267} />
                 <Image src={"/sponsor2.png"} alt="Sponsor 1" height={300} width={267} />
