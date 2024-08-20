@@ -9,6 +9,25 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 
+export function generateStaticParams() {
+    return [
+        { category: 'all' },
+        { category: 'monitores' },
+        { category: 'gabinetes' },
+        { category: 'mouse' },
+        { category: 'teclados' },
+        { category: 'auriculares' },
+        { category: 'mandos' },
+        { category: 'placas' },
+        { category: 'motherboards' },
+        { category: 'ram' },
+        { category: 'discos' },
+        { category: 'fuentes' },
+    ]
+}
+
+export const revalidate = 3600
+
 const Products = ({ params }) => {
     const { category } = params;
 
@@ -19,7 +38,7 @@ const Products = ({ params }) => {
                 <div className="flex gap-10 ">
                     <CategoriesMenu />
                     <Suspense fallback={<div>Cargando...</div>}>
-                    <ProductList category={category} />
+                        <ProductList category={category} />
                     </Suspense>
                 </div>
             </main>

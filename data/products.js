@@ -1,6 +1,6 @@
 export const mockData = [
     {
-        title: "Monitor Curvo Samsung 24 ",
+        title: "Monitor Curvo Samsung 24",
         description: "144Hz Full HD Curvo FreeSync",
         stock: 10,
         price: 285000,
@@ -11,14 +11,14 @@ export const mockData = [
     {
         title: "Monitor Gamer LG 20 VGA",
         description: "Tamaño de la pantalla: 20,HD, LED, HDMI y VGA",
-        stock: 20,
+        stock: 10,
         price: 112000,
         slug: "lg-gamer-20",
         image: "/monitor-lg-20.png",
         category: "monitores"
     },
     {
-        title: "Monitor Gamer ASUS TUF 27 ",
+        title: "Monitor Gamer ASUS TUF 27",
         description: "WQHD 2K 170Hz 1ms FreeSync Premium",
         stock: 10,
         price: 440000,

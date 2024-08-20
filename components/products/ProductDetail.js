@@ -4,8 +4,10 @@ import GoBack from "../GoBack.js";
 
 const ProductDetail = async ({ slug }) => {
     const { data: item } = await fetch(`http://localhost:3000/api/productsSlug/${slug}`, {
-        cache: 'no-store',
-        next: { revalidate: 0 }
+        cache: "force-cache",
+        next: {
+            tags: ["products"],
+        }
     }).then(res => res.json());
 
     return (
