@@ -36,13 +36,13 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className=" mx-auto p-4 bg-white shadow-md rounded-lg text-gray-700">
+    <form onSubmit={handleSubmit} className="p-4 md:w-1/2 text-gray-700">
       <div className="mb-4">
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nombre:</label>
         <input
           type="text"
           id="name"
           name="name"
+          placeholder='Nombre'
           value={formData.name}
           onChange={handleChange}
           required
@@ -50,11 +50,11 @@ const ContactForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Correo Electrónico:</label>
         <input
           type="email"
           id="email"
           name="email"
+          placeholder='Email'
           value={formData.email}
           onChange={handleChange}
           required
@@ -62,10 +62,10 @@ const ContactForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Mensaje:</label>
         <textarea
           id="message"
           name="message"
+          placeholder='Mensaje'
           value={formData.message}
           onChange={handleChange}
           required
@@ -74,7 +74,7 @@ const ContactForm = () => {
       </div>
       <Button
         type="submit"
-        className="w-full py-2 px-4 bg-indigo-600 text-white font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        className="py-2 px-4 bg-indigo-600 text-white font-medium rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
       >
         Enviar
       </Button>
