@@ -16,14 +16,14 @@ export const CartProvider = ({ children }) => {
         return cart.some(item => item.slug === slug)
     }
 
-    const totalQty = () => 1
+    const totalQty = () => cart.reduce((acc, item) => acc + item.qty, 0)
 
     const emptyCart = () => {
         setCart([])
     }
 
     return (
-        <CartContext.Provider value={{ addToCart, isInCart, totalQty, emptyCart }}>
+        <CartContext.Provider value={{ cart, addToCart, isInCart, totalQty, emptyCart }}>
             {children}
         </CartContext.Provider>
     )
