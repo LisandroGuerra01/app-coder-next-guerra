@@ -3,9 +3,10 @@ import QtySelector from "./QtySelector.js";
 import GoBack from "../GoBack.js";
 
 const ProductDetail = async ({ slug }) => {
-    const { data: item } = await fetch(`http://localhost:3000/api/productsSlug/${slug}`, {
-        cache: "force-cache",
+    const item = await fetch(`http://localhost:3000/api/productsSlug/${slug}`, {
+        cache: "no-sote",
         next: {
+            revalidate: 0,
             tags: ["products"],
         }
     }).then(res => res.json());
