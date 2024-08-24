@@ -1,36 +1,63 @@
 'use client'
 
 import { useCartContext } from "@/components/context/CartContext"
+import Image from "next/image"
+import Button from "@/components/Button"
+import Link from "next/link"
 
 const CartPage = () => {
     const { cart, totalQty } = useCartContext()
 
     return (
-        <div className="min-h-screen bg-gray-100 p-6">
-            <h1 className="text-2xl font-bold text-gray-900 mb-6">Carrito de Compras</h1>
-            <div className="bg-white p-4 shadow-md rounded-lg">
-                <table className="w-full table-auto">
+        <div className="min-h-screen bg-indigo-100 p-6">
+            <div className="p-4 shadow-md bg-gray-100 rounded-lg">
+                <h3 className="text-2xl font-bold text-indigo-800 mb-6">Tu carrito</h3>
+                <hr className="my-4" />
+                <table className="w-1/2 text-gray-600">
                     <thead>
                         <tr>
-                            <th className="px-4 py-2 text-left text-gray-600">Producto</th>
-                            <th className="px-4 py-2 text-left text-gray-600">Cantidad</th>
-                            <th className="px-4 py-2 text-left text-gray-600">Precio</th>
-                            <th className="px-4 py-2 text-left text-gray-600">Total</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         {cart.map((item) => (
                             <tr key={item.slug}>
-                                <td className="border px-4 py-2 text-gray-600">{item.title}</td>
-                                <td className="border px-4 py-2 text-gray-600">{item.quantity}</td>
-                                <td className="border px-4 py-2 text-gray-600">${item.price.toFixed(2)}</td>
-                                <td className="border px-4 py-2 text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
+                                <td>
+                                    <Link href={`/products/${item.category}/${item.slug}`}>
+                                        <Image
+                                            src={`/products${item.image}`}
+                                            alt={item.title}
+                                            width={100}
+                                            height={100} />
+                                    </Link>
+                                </td>
+                                <td className="text-gray-600">
+                                    <Link href={`/products/${item.category}/${item.slug}`}>{item.title}</Link>
+                                </td>
+                                <td className="text-gray-600">
+                                    <Button className="mx-2">-</Button>
+                                    {item.quantity}
+                                    <Button className="mx-2">+</Button>
+                                </td>
+                                <td className="text-gray-600">${item.price.toFixed(2)}</td>
+                                <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
-                <div className="text-right mt-4">
-                    <span className="text-lg font-bold text-gray-600 flex justify-end">Total: ${totalQty}</span>
+                <div className="mt-9">
+                    <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
+                    <Button className=" bg-white-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
+                </div>
+                <div className="mt-4">
+                    <Link href="/products" className="text-indigo-600 hover:underline">Seguir comprando</Link>
+                </div>
+                <div className="mt-4">
+                    <Link href="/" className="text-indigo-600 hover:underline">Volver al inicio</Link>
                 </div>
             </div>
         </div>
