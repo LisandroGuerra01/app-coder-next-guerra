@@ -9,6 +9,16 @@ import { MdDelete } from "react-icons/md";
 const CartPage = () => {
     const { cart, totalQty, removeFromCart, emptyCart } = useCartContext()
 
+    if (totalQty() === 0) return (
+        <div className="min-h-screen bg-indigo-100 p-6">
+            <div className="w-1/2 p-4 shadow-md bg-gray-100 rounded-lg">
+                <h3 className="text-2xl font-bold text-indigo-800 mb-6">No hay productos en tu carrito</h3>
+                <hr className="my-4" />
+                <Link href="/products" className="text-indigo-600 hover:underline">Ir a comprar</Link>
+            </div>
+        </div>
+    )
+
     return (
         <div className="min-h-screen bg-indigo-100 p-6">
             <div className="w-1/2 p-4 shadow-md bg-gray-100 rounded-lg">
