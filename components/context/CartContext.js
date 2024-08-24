@@ -31,8 +31,8 @@ export const CartProvider = ({ children }) => {
     const totalQty = () => cart.reduce((acc, item) => acc + item.quantity, 0)
 
     //eliminar un producto del carrito
-    const removeFromCart = (slug) => {
-        const updatedCart = cart.filter(item => item.slug !== slug)
+    const removeFromCart = (item) => {
+        const updatedCart = cart.filter(i => i.item !== item)
         setCart(updatedCart)
     }
 

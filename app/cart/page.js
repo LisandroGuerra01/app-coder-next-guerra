@@ -67,15 +67,16 @@ const CartPage = () => {
                         <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
                         <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
                     </div>
-                    <div>
-                    <MdDelete className="text-3xl text-gray-600"  size={30}/>
-                    </div>
                 </div>
                 <div className="mt-4">
                     <Link href="/products" className="text-indigo-600 hover:underline">Seguir comprando</Link>
                 </div>
-                <div className="mt-4">
+                <div className="mt-4 flex justify-between">
                     <Link href="/" className="text-indigo-600 hover:underline">Volver al inicio</Link>
+                    <button className="text-sm text-gray-800 hover:underline hover:text-red-600 flex" onClick={emptyCart}>
+                        <MdDelete size={20} />
+                        <p>Vaciar carrito</p>
+                    </button>
                 </div>
             </div>
         </div>
