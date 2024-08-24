@@ -4,18 +4,20 @@ import { useCartContext } from "@/components/context/CartContext"
 import Image from "next/image"
 import Button from "@/components/Button"
 import Link from "next/link"
+import { MdDelete } from "react-icons/md";
 
 const CartPage = () => {
-    const { cart, totalQty } = useCartContext()
+    const { cart, totalQty, removeFromCart, emptyCart } = useCartContext()
 
     return (
         <div className="min-h-screen bg-indigo-100 p-6">
-            <div className="p-4 shadow-md bg-gray-100 rounded-lg">
+            <div className="w-1/2 p-4 shadow-md bg-gray-100 rounded-lg">
                 <h3 className="text-2xl font-bold text-indigo-800 mb-6">Tu carrito</h3>
                 <hr className="my-4" />
-                <table className="w-1/2 text-gray-600">
+                <table className="text-gray-600">
                     <thead>
                         <tr>
+                            <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -39,19 +41,22 @@ const CartPage = () => {
                                     <Link href={`/products/${item.category}/${item.slug}`}>{item.title}</Link>
                                 </td>
                                 <td className="text-gray-600">
-                                    <Button className="mx-2">-</Button>
+                                    <Button className="mx-2 bg-gray-400">-</Button>
                                     {item.quantity}
-                                    <Button className="mx-2">+</Button>
+                                    <Button className="mx-2 bg-gray-400">+</Button>
                                 </td>
                                 <td className="text-gray-600">${item.price.toFixed(2)}</td>
                                 <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
+                                <td>
+                                    <MdDelete className="text-3xl" onClick={removeFromCart} />
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
                 <div className="mt-9">
                     <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
-                    <Button className=" bg-white-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
+                    <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
                 </div>
                 <div className="mt-4">
                     <Link href="/products" className="text-indigo-600 hover:underline">Seguir comprando</Link>
