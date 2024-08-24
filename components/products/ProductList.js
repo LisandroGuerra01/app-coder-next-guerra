@@ -3,7 +3,7 @@ import ProductCard from './ProductCard'
 const ProductList = async ({ category }) => {
     const items = await fetch(
         `http://localhost:3000/api/products/${category}`, {
-        cache: "force-cache",
+        cache: "no-cache",
         next: {
             tags: ["products"],
         }

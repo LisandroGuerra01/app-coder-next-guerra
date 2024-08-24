@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-const  ProductCard = ({ item }) => {
+const ProductCard = ({ item }) => {
     return (
         <article className="basis-72 shadow-lg rounded bg-grey-600 rounded-xl transition ease-in-out delay-50 hover:translate-x-2 hover:scale-110 hover:bg-indigo-500 duration-300 hover:bg-gradient-to-r from-sky-500 to-indigo-500">
             <Link href={`/products/${item.category}/${item.slug}`} className='flex flex-col'>
