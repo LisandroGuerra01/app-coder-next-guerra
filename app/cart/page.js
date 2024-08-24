@@ -22,7 +22,6 @@ const CartPage = () => {
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +44,6 @@ const CartPage = () => {
                                     {item.quantity}
                                     <Button className="mx-2 bg-gray-400">+</Button>
                                 </td>
-                                <td className="text-gray-600">${item.price.toFixed(2)}</td>
                                 <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
                                 <td>
                                     <MdDelete className="text-3xl" onClick={removeFromCart} />
@@ -54,9 +52,14 @@ const CartPage = () => {
                         ))}
                     </tbody>
                 </table>
-                <div className="mt-9">
-                    <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
-                    <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
+                <div className="mt-9 flex justify-between">
+                    <div>
+                        <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
+                        <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
+                    </div>
+                    <div>
+                    <MdDelete className="text-3xl text-gray-600"  size={30}/>
+                    </div>
                 </div>
                 <div className="mt-4">
                     <Link href="/products" className="text-indigo-600 hover:underline">Seguir comprando</Link>
