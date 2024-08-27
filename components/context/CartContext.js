@@ -14,13 +14,17 @@ export const CartProvider = ({ children }) => {
         if (itemInCart) {
             const updatedCart = cart.map((cartItem) => {
                 if (cartItem.slug === item.slug) {
-                    return { ...cartItem, quantity: cartItem.quantity + 1 }
+                    if (cartItem.quantity >= item.stock) {
+                        alert('No hay suficiente stock')
+                    } else {
+                        return { ...cartItem, quantity: cartItem.quantity + item.quantity }
+                    }
                 }
                 return cartItem
             })
             setCart(updatedCart)
         } else {
-            setCart([...cart, { ...item, quantity: 1 }])
+            setCart([...cart, { ...item, quantity: item.quantity }])
         }
     }
 

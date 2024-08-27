@@ -8,8 +8,6 @@ import { MdDelete } from "react-icons/md";
 
 const CartPage = () => {
     const { cart, getQuantity, getTotalPrice, removeFromCart, emptyCart } = useCartContext()
-    console.log("getTotalPrice", getTotalPrice);
-
 
     if (getQuantity() === 0) return (
         <div className="min-h-screen bg-indigo-100 p-6">
@@ -51,22 +49,24 @@ const CartPage = () => {
                                 <td className="text-gray-600">
                                     <Link href={`/products/${item.category}/${item.slug}`}>{item.title}</Link>
                                 </td>
-                                <td className="text-gray-600">
-                                    <Button className="mx-2 bg-gray-400">-</Button>
+                                <td>
+                                    <button className="mx-2 rounded border h-6 w-6 border-indigo-500">-</button>
                                     {item.quantity}
-                                    <Button className="mx-2 bg-gray-400">+</Button>
+                                    <button className="mx-2 rounded border h-6 w-6 border-indigo-500">+</button>
                                 </td>
                                 <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
                                 <td>
-                                    <MdDelete className="text-3xl" onClick={removeFromCart} />
+                                    <button onClick={() => removeFromCart(item)}>
+                                        <MdDelete className="text-3xl" />
+                                    </button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
                 <div className="mt-9 flex justify-between">
-                    <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
                     <div>
+                        <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
                         <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
                     </div>
                 </div>
