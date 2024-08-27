@@ -7,9 +7,11 @@ import Link from "next/link"
 import { MdDelete } from "react-icons/md";
 
 const CartPage = () => {
-    const { cart, totalQty, removeFromCart, emptyCart } = useCartContext()
+    const { cart, getQuantity, getTotalPrice, removeFromCart, emptyCart } = useCartContext()
+    console.log("getTotalPrice", getTotalPrice);
 
-    if (totalQty() === 0) return (
+
+    if (getQuantity() === 0) return (
         <div className="min-h-screen bg-indigo-100 p-6">
             <div className="w-1/2 p-4 shadow-md bg-gray-100 rounded-lg">
                 <h3 className="text-2xl font-bold text-indigo-800 mb-6">No hay productos en tu carrito</h3>
@@ -63,8 +65,8 @@ const CartPage = () => {
                     </tbody>
                 </table>
                 <div className="mt-9 flex justify-between">
+                    <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
                     <div>
-                        <span className="text-lg font-bold text-gray-600">Total: ${totalQty}</span>
                         <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
                     </div>
                 </div>
