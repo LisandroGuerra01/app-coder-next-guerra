@@ -5,9 +5,10 @@ import Image from "next/image"
 import Button from "@/components/Button"
 import Link from "next/link"
 import { MdDelete } from "react-icons/md";
+import Counter from "@/components/Counter";
 
 const CartList = () => {
-    const { cart, getQuantity, getTotalPrice, removeFromCart, emptyCart } = useCartContext()
+    const { cart, getQuantity, getTotalPrice, removeFromCart, emptyCart, updateQuantity } = useCartContext()
 
     if (getQuantity() === 0) return (
         <div className="min-h-screen bg-indigo-100 p-6">
@@ -49,9 +50,11 @@ const CartList = () => {
                                 <Link href={`/products/${item.category}/${item.slug}`}>{item.title}</Link>
                             </td>
                             <td>
-                                <button className="mx-2 rounded border h-6 w-6 border-indigo-500">-</button>
-                                {item.quantity}
-                                <button className="mx-2 rounded border h-6 w-6 border-indigo-500">+</button>
+                                <Counter
+                                    counter={item.quantity}
+                                    setCounter={(newQuantity) => updateQuantity(item, newQuantity)}
+                                    max={item.stock}
+                                />
                             </td>
                             <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
                             <td>
@@ -83,4 +86,4 @@ const CartList = () => {
     )
 }
 
-export default CartList
+export default CartList;

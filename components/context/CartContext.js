@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 const CartContext = createContext()
 
@@ -8,7 +8,20 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
-    //añadir item al carrito
+    //Cargar el carrito desde localStorage al montar el componente
+    useEffect(() => {
+        const storedCart = localStorage.getItem('cart')
+        if (storedCart) {
+            setCart(JSON.parse(storedCart))
+        }
+    }, [])
+
+    //Guardar el carrito en localStorage cada vez que cambie
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart))
+    }, [cart])
+
+    //Añadir item al carrito
     const addToCart = (item) => {
         const itemInCart = cart.find(cartItem => cartItem.slug === item.slug)
         if (itemInCart) {
@@ -32,24 +45,35 @@ export const CartProvider = ({ children }) => {
         return cart.some(item => item.slug === slug)
     }
 
+    //Obtener cantidad de items en el carrito
     const getQuantity = () => cart.reduce((acc, item) => acc + item.quantity, 0)
 
+    //Obtener precio total del carrito
     const getTotalPrice = () => {
         return cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
     }
 
-    //eliminar un producto del carrito
+    //Eliminar un producto del carrito
     const removeFromCart = (item) => {
-        const updatedCart = cart.filter(i => i.item !== item)
+        const updatedCart = cart.filter(i => i.slug !== item.slug)
         setCart(updatedCart)
     }
 
+    //Actualizar cantidad
+    const updateQuantity = (item, newQuantity) => {
+        const updatedCart = cart.map(cartItem => 
+            cartItem.slug === item.slug ? { ...cartItem, quantity: newQuantity } : cartItem
+        );
+        setCart(updatedCart);
+    }
+
+    //Vaciar carrito
     const emptyCart = () => {
         setCart([])
     }
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, isInCart, getQuantity, getTotalPrice, removeFromCart, emptyCart }}>
+        <CartContext.Provider value={{ cart, addToCart, isInCart, getQuantity, getTotalPrice, removeFromCart, updateQuantity, emptyCart }}>
             {children}
         </CartContext.Provider>
     )
