@@ -1,4 +1,3 @@
-// import { mockData } from "@/data/products"
 import ProductDetail from "@/components/products/ProductDetail"
 
 const Detail = ({ params }) => {

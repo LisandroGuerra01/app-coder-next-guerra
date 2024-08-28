@@ -8,9 +8,9 @@ const Counter = ({ counter, setCounter, max }) => {
 
     return (
         <div className="flex items-center gap-3">
-            <Button onClick={decrease} className="active:bg-blue-600">-</Button>
+            <Button onClick={decrease} className="active:bg-indigo-400 hover:text-gray-600 transition duration-300">-</Button>
             <p>{counter}</p>
-            <Button onClick={increase} className="active:bg-blue-600">+</Button>
+            <Button onClick={increase} className="active:bg-indigo-400 hover:text-gray-600 transition duration-300">+</Button>
         </div>
     );
 };

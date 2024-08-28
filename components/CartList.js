@@ -69,7 +69,9 @@ const CartList = () => {
             <div className="mt-9 flex justify-between">
                 <div>
                     <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
-                    <Button className="bg-gray-400 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition duration-300">Ir a pagar</Button>
+                    <Link href={"/order"}>
+                    <button className="border border-indigo-500 text-gray-600 hover:text-gray-100 px-1 py-1 mx-2 rounded-md hover:bg-indigo-500 transition duration-300">Ir a pagar</button>
+                    </Link>
                 </div>
             </div>
             <div className="mt-4">

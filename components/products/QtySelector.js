@@ -19,7 +19,7 @@ const QtySelector = ({ item }) => {
     return (
         <div className="flex flex-col gap-5 mt-4">
             <Counter max={item.stock} counter={quantity} setCounter={setQuantity} />
-            <Button className="active:bg-blue-600" onClick={handleAdd}>Agregar al carrito</Button>
+            <Button className="active:bg-indigo-400 hover:text-gray-600 transition duration-300" onClick={handleAdd}>Agregar al carrito</Button>
         </div>
     )
 }
