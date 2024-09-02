@@ -1,6 +1,6 @@
 import ProductsTable from '@/components/admin/ProductsTable';
 
-const Admin = () => {
+const AdminPage = () => {
   return (
     <div className="p-5 bg-gray-100 items-center justify-center">
       <h3 className='text-indigo-600 text-2xl px-4'>Dejanos tu mensaje</h3>
@@ -10,4 +10,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default AdminPage;
