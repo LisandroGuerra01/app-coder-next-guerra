@@ -1,12 +1,21 @@
 'use client'
 import { useState } from 'react';
 import Button from '../Button';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "@/firebase/config";
+import { db, storage } from "@/firebase/config";
 
-const createProduct = async (values) => {
+const createProduct = async (values, file) => {
+    const storafeRef = ref(storage, values.slug)
+    const fileSnapshot = await uploadBytes(storafeRef, file)
+    const fileUrl = await getDownloadURL(fileSnapshot.ref)
+
+
     const docRef = doc(db, "products", values.slug)
-    return setDoc(docRef, { ...values })
+    return setDoc(docRef, {
+        ...values,
+        image: fileUrl
+    })
         .then(() => console.log("Producto agregado!")
         )
 }
