@@ -1,12 +1,20 @@
 /* eslint-disable react/prop-types */
 'use client'
-import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "@/firebase/config";
+import { createContext, useContext, useState, useEffect } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 //Creando contexto de auth
 const AuthContext = createContext();
 
 //Hook para usar el contexto de auth
-export const useAuthContext = () => useContext(AuthContext);
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (context === undefined) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context
+}
 
 
 //Proveedor de autenticacion
@@ -16,15 +24,49 @@ export const AuthProvider = ({ children }) => {
         email: null,
         uid: null
     });
+
+    //Cargar datos de usuario desde localStorage al iniciar
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+    }, []);
+
+    //Guardar datos de usuario en localStorage cuando se modifique
+    useEffect(() => {
+        if (user.logged) {
+            localStorage.setItem('user', JSON.stringify(user));
+        } else {
+            localStorage.removeItem('user');
+        }
+    }, [user]);
+
     // const [loading, setLoading] = useState(true);
 
-    // const signup = (email, password) => {
-    //     return createUserWithEmailAndPassword(auth, email, password);
-    // };
+    const signup = async (values) => {
+        const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+        console.log(userCredential);
 
-    // const login = (email, password) => {
-    //     return signInWithEmailAndPassword(auth, email, password);
-    // };
+        const user = userCredential.user;
+        setUser({
+            logged: true,
+            email: user.email,
+            uid: user.uid
+        });
+    };
+
+    const loginUser = async (values) => {
+        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);   
+
+        const user = userCredential.user;
+        setUser({
+            logged: true,
+            email: user.email,
+            uid: user.uid
+        });
+    };
+
 
     // const logout = () => {
     //     setLoading(true);
@@ -69,7 +111,7 @@ export const AuthProvider = ({ children }) => {
 
     //Renderizando el contexto
     return (
-        <AuthContext.Provider value={user}>
+        <AuthContext.Provider value={{ user, signup, loginUser }}>
             {children}
         </AuthContext.Provider>
     );
