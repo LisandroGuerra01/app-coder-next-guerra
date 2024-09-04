@@ -6,12 +6,11 @@ import { doc, setDoc } from "firebase/firestore";
 import { db, storage } from "@/firebase/config";
 
 const createProduct = async (values, file) => {
-    const storafeRef = ref(storage, values.slug)
-    const fileSnapshot = await uploadBytes(storafeRef, file)
+    const storageRef = ref(storage, values.slug)
+    const fileSnapshot = await uploadBytes(storageRef, file)
     const fileUrl = await getDownloadURL(fileSnapshot.ref)
-
-
     const docRef = doc(db, "products", values.slug)
+
     return setDoc(docRef, {
         ...values,
         image: fileUrl
@@ -52,6 +51,16 @@ const CreateForm = () => {
                 className='mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 name="slug"
                 onChange={handleChange}
+            />
+
+            <label>Imagen: </label>
+            <input
+                type="file"
+                value={values.image}
+                required
+                className='mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+                name="image"
+                onChange={(e) => handleChange(e.target.files[0])}
             />
 
             <label>Nombre: </label>
