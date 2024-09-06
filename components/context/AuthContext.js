@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 'use client'
-import { auth } from "@/firebase/config";
+import { auth, provider } from "@/firebase/config";
 import { createContext, useContext, useState, useEffect } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
 
 //Creando contexto de auth
 const AuthContext = createContext();
@@ -25,22 +25,22 @@ export const AuthProvider = ({ children }) => {
         uid: null
     });
 
-    //Cargar datos de usuario desde localStorage al iniciar
-    useEffect(() => {
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-    }, []);
+    // //Cargar datos de usuario desde localStorage al iniciar
+    // useEffect(() => {
+    //     const storedUser = localStorage.getItem('user');
+    //     if (storedUser) {
+    //         setUser(JSON.parse(storedUser));
+    //     }
+    // }, []);
 
-    //Guardar datos de usuario en localStorage cuando se modifique
-    useEffect(() => {
-        if (user.logged) {
-            localStorage.setItem('user', JSON.stringify(user));
-        } else {
-            localStorage.removeItem('user');
-        }
-    }, [user]);
+    // //Guardar datos de usuario en localStorage cuando se modifique
+    // useEffect(() => {
+    //     if (user.logged) {
+    //         localStorage.setItem('user', JSON.stringify(user));
+    //     } else {
+    //         localStorage.removeItem('user');
+    //     }
+    // }, [user]);
 
     // const [loading, setLoading] = useState(true);
 
@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     const loginUser = async (values) => {
-        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);   
+        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
 
         const user = userCredential.user;
         setUser({
@@ -67,11 +67,33 @@ export const AuthProvider = ({ children }) => {
         });
     };
 
+    const googleLogin = async () => {
+        await signInWithPopup(auth, provider);
+    };
 
-    // const logout = () => {
-    //     setLoading(true);
-    //     return signOut(auth);
-    // };
+    const logout = () => {
+        return signOut(auth);
+    };
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser({
+                    logged: true,
+                    email: user.email,
+                    uid: user.uid
+                });
+            } else {
+                setUser({
+                    logged: false,
+                    email: null,
+                    uid: null
+                });
+            }
+        })
+    }, []);
+
+
 
     // const resetPassword = (email) => {
     //     setLoading(true);
@@ -111,7 +133,7 @@ export const AuthProvider = ({ children }) => {
 
     //Renderizando el contexto
     return (
-        <AuthContext.Provider value={{ user, signup, loginUser }}>
+        <AuthContext.Provider value={{ user, signup, loginUser, googleLogin, logout }}>
             {children}
         </AuthContext.Provider>
     );
