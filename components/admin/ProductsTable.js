@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaRegEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const ProductsTable = async () => {
     const items = await fetch(
@@ -39,9 +41,14 @@ const ProductsTable = async () => {
                             <td className="p-2">{item.description}</td>
                             <td className="p-2">
                                 <Link
-                                    href={`/admin/edit/${item.slug}`}
-                                    className="rounded bg-green-400 p-2 text-white">
-                                    Editar
+                                    href={`/admin/edit/${item.slug}`}>
+                                    <FaRegEdit className='text-3xl' />
+                                </Link>
+                            </td>
+                            <td className="p-2">
+                                <Link
+                                    href={`/admin/delete/${item.slug}`}>
+                                    <MdDelete className='text-3xl' />
                                 </Link>
                             </td>
                         </tr>

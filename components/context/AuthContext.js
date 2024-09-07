@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 'use client'
-import { auth, provider } from "@/firebase/config";
+import { db, auth, provider } from "@/firebase/config";
 import { createContext, useContext, useState, useEffect } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, signInWithPopup } from "firebase/auth";
+import { doc, getDoc } from 'firebase/firestore';
+import { useRouter } from 'next/navigation';
 
 //Creando contexto de auth
 const AuthContext = createContext();
@@ -16,7 +18,6 @@ export const useAuth = () => {
     return context
 }
 
-
 //Proveedor de autenticacion
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({
@@ -25,22 +26,7 @@ export const AuthProvider = ({ children }) => {
         uid: null
     });
 
-    // //Cargar datos de usuario desde localStorage al iniciar
-    // useEffect(() => {
-    //     const storedUser = localStorage.getItem('user');
-    //     if (storedUser) {
-    //         setUser(JSON.parse(storedUser));
-    //     }
-    // }, []);
-
-    // //Guardar datos de usuario en localStorage cuando se modifique
-    // useEffect(() => {
-    //     if (user.logged) {
-    //         localStorage.setItem('user', JSON.stringify(user));
-    //     } else {
-    //         localStorage.removeItem('user');
-    //     }
-    // }, [user]);
+    const router = useRouter();
 
     // const [loading, setLoading] = useState(true);
 
@@ -76,13 +62,21 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             if (user) {
-                setUser({
-                    logged: true,
-                    email: user.email,
-                    uid: user.uid
-                });
+                const docRef = doc(db, "roles", user.uid);
+                const userDoc = await getDoc(docRef);             
+
+                if (userDoc.data()?.rol === 'admin') {
+                    setUser({
+                        logged: true,
+                        email: user.email,
+                        uid: user.uid,
+                    });
+                } else {
+                    router.push('/unauthorized');
+                    logout()
+                }
             } else {
                 setUser({
                     logged: false,
@@ -100,12 +94,6 @@ export const AuthProvider = ({ children }) => {
     //     return sendPasswordResetEmail(auth, email);
     // };
 
-    // const loginGoogle = () => {
-    //     setLoading(true);
-    //     const provider = new GoogleAuthProvider();
-    //     return signInWithPopup(auth, provider);
-    // };
-
     // const loginFacebook = () => {
     //     setLoading(true);
     //     const provider = new FacebookAuthProvider();
@@ -119,17 +107,6 @@ export const AuthProvider = ({ children }) => {
     //     });
     //     return () => unsubscribe();
     // }, []);
-
-    //Objeto del contexto
-    // const value = {
-    //     currentUser,
-    //     signup,
-    //     login,
-    //     loginGoogle,
-    //     logout,
-    //     loginFacebook,
-    //     resetPassword,
-    // };
 
     //Renderizando el contexto
     return (
