@@ -1,8 +1,6 @@
 'use client'
-
 import { useCartContext } from "@/components/context/CartContext"
 import Image from "next/image"
-import Button from "@/components/Button"
 import Link from "next/link"
 import { MdDelete } from "react-icons/md";
 import Counter from "@/components/Counter";
@@ -56,7 +54,7 @@ const CartList = () => {
                                     max={item.stock}
                                 />
                             </td>
-                            <td className="text-gray-600">${(item.quantity * item.price).toFixed(2)}</td>
+                            <td className="text-gray-600">${(item.quantity * item.price)}</td>
                             <td>
                                 <button onClick={() => removeFromCart(item)}>
                                     <MdDelete className="text-3xl" />
@@ -69,7 +67,7 @@ const CartList = () => {
             <div className="mt-9 flex justify-between">
                 <div>
                     <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
-                    <Link href={"/order"}>
+                    <Link href={"/client"}>
                     <button className="border border-indigo-500 text-gray-600 hover:text-gray-100 px-1 py-1 mx-2 rounded-md hover:bg-indigo-500 transition duration-300">Ir a pagar</button>
                     </Link>
                 </div>

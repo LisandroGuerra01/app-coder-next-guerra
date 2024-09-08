@@ -50,7 +50,7 @@ export const CartProvider = ({ children }) => {
 
     //Obtener precio total del carrito
     const getTotalPrice = () => {
-        return cart.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2)
+        return cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
     }
 
     //Eliminar un producto del carrito
