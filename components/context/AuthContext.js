@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 'use client'
 import { db, auth, provider } from "@/firebase/config";
 import { createContext, useContext, useState, useEffect } from "react";

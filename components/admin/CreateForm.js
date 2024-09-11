@@ -4,18 +4,24 @@ import Button from '../Button';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { db, storage } from "@/firebase/config";
+import { v4 as uuidv4 } from 'uuid';
 
-const createProduct = async (values, file) => {
-    const storageRef = ref(storage, values.slug)
-    const fileSnapshot = await uploadBytes(storageRef, file)
-    const fileUrl = await getDownloadURL(fileSnapshot.ref)
-    const docRef = doc(db, "products", values.slug)
+
+const createProduct = async (values) => {
+    const id = uuidv4();
+    const price = parseFloat(values.price);
+    const stock = parseInt(values.stock);
+
+    const docRef = doc(db, "products", id.toString());
 
     return setDoc(docRef, {
         ...values,
-        image: fileUrl
+        id,
+        price,
+        stock,
+        image: values.image
     })
-        .then(() => console.log("Producto agregado!")
+        .then(() => alert("Producto agregado!")
         )
 }
 
@@ -23,16 +29,27 @@ const CreateForm = () => {
     const [values, setValues] = useState({
         title: '',
         description: '',
-        stock: 0,
+        stock: 10,
         price: 0,
         slug: '',
-        category: ''
+        category: '',
+        image: null
     })
 
     const handleChange = (e) => {
         setValues({
             ...values,
             [e.target.name]: e.target.value
+        })
+    }
+
+    const handleImageChange = async (e) => {
+        const storageRef = ref(storage, uuidv4());
+        const fileSnapshot = await uploadBytes(storageRef, e.target.files[0]);
+        const fileURL = await getDownloadURL(fileSnapshot.ref);
+        setValues({
+            ...values,
+            image: fileURL
         })
     }
 
@@ -56,11 +73,11 @@ const CreateForm = () => {
             <label>Imagen: </label>
             <input
                 type="file"
-                value={values.image}
+                // value={values.image}
                 required
                 className='mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 name="image"
-                onChange={(e) => handleChange(e.target.files[0])}
+                onChange={handleImageChange}
             />
 
             <label>Nombre: </label>
@@ -94,14 +111,19 @@ const CreateForm = () => {
             />
 
             <label>Categoría: </label>
-            <input
+            <select
                 type='text'
                 value={values.category}
                 required
                 className='mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
                 name='category'
                 onChange={handleChange}
-            />
+            >
+                <option value="monitores">Monitores</option>
+                <option value="gabinetes">Gabinetes</option>
+                <option value="mouse">Mouse</option>
+                <option value="teclados">Teclados</option>
+            </select>
 
             <label>Descripción: </label>
             <input
