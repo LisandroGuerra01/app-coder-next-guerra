@@ -11,7 +11,7 @@ const updateProduct = async (slug, values, file) => {
     if (file) {
         const storageRef = ref(storage, values.slug)
         const fileSnapShot = await uploadBytes(storageRef, file)
-        fileURL = await getDownloadURL(fileSnapShot.ref)
+        const fileURL = await getDownloadURL(fileSnapShot.ref)
     }
 
     const docRef = doc(db, 'products', slug)
