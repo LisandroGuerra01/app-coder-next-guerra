@@ -7,7 +7,7 @@ const getPosts = async () => {
         {
             cache: "no-store",
             next: {
-                revalidate: 3600,
+                tags: ["posts"],
             },
         }
     );
