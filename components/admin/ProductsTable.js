@@ -25,7 +25,7 @@ const ProductsTable = async () => {
                 </thead>
                 <tbody>
                     {items.map(item => (
-                        <tr>
+                        <tr key={item.id}>
                             <td className="p-2">{item.title}</td>
                             <td className="p-2">{item.category}</td>
                             <td className="p-2">
