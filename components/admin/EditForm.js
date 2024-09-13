@@ -58,7 +58,7 @@ const EditForm = ({ item }) => {
                 <input type="number" name="stock" value={values.stock} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
                 <input type="number" name="price" value={values.price} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
                 <input type="text" name="category" value={values.category} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
-                <Button type="submit">Editar Producto</Button>
+                <Button type="submit" className="text-white">Editar Producto</Button>
             </form>
         </div>
     )

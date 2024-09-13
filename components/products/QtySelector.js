@@ -13,13 +13,13 @@ const QtySelector = ({ item }) => {
         addToCart({
             ...item,
             quantity
-        })
+        }),quantity === 1 ? alert("Producto añadido") : alert("Productos añadidos")
     }
 
     return (
         <div className="flex flex-col gap-5 mt-4">
             <Counter max={item.stock} counter={quantity} setCounter={setQuantity} />
-            <Button className="active:bg-indigo-400 hover:text-gray-600 transition duration-300" onClick={handleAdd}>Agregar al carrito</Button>
+            <Button className="active:bg-indigo-400 transition duration-300" onClick={handleAdd}>Agregar al carrito</Button>
         </div>
     )
 }

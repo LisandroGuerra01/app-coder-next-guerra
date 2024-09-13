@@ -3,13 +3,14 @@ import QtySelector from "./QtySelector.js";
 import GoBack from "../GoBack.js";
 
 const ProductDetail = async ({ slug }) => {
-    const item = await fetch(`http://${process.env.VERCEL_URL}/api/productsSlug/${slug}`, {
+    const item = await fetch(`http://localhost:3000/api/productsSlug/${slug}`, {
         cache: "no-store",
         next: {
             revalidate: 0,
             tags: ["products"],
         }
     }).then(res => res.json());
+    
 
     return (
         <div className="max-w-4xl m-auto p-5">
