@@ -5,7 +5,7 @@ import { MdDelete } from "react-icons/md";
 
 const ProductsTable = async () => {
     const items = await fetch(
-        `http://localhost:3000/api/products/all`,
+        `http://${process.env.VERCEL_URL}/api/products/all`,
         {
             cache: "no-store",
         }).then(r => r.json())
