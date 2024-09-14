@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import Button from '@/components/Button';
 
@@ -20,19 +20,34 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch(`https://${process.env.VERCEL_URL}/api/contact`, {
-      method: 'POST', 
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    // Limpiar el formulario después de enviarlo
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+    try {
+      // Realiza la solicitud a la API para enviar los datos del formulario usando una ruta relativa
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Verifica si la respuesta es exitosa
+      if (!response.ok) {
+        throw new Error(`Error en el envío del formulario: ${response.status} ${response.statusText}`);
+      }
+
+      // Limpiar el formulario después de enviarlo
+      setFormData({
+        name: '',
+        email: '',
+        message: '',
+      });
+
+      // Opcional: agregar una notificación o alerta para indicar que el formulario se envió correctamente
+      alert('Formulario enviado con éxito.');
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
+    }
   };
 
   return (
@@ -42,7 +57,7 @@ const ContactForm = () => {
           type="text"
           id="name"
           name="name"
-          placeholder='Nombre'
+          placeholder="Nombre"
           value={formData.name}
           onChange={handleChange}
           required
@@ -54,7 +69,7 @@ const ContactForm = () => {
           type="email"
           id="email"
           name="email"
-          placeholder='Email'
+          placeholder="Email"
           value={formData.email}
           onChange={handleChange}
           required
@@ -65,7 +80,7 @@ const ContactForm = () => {
         <textarea
           id="message"
           name="message"
-          placeholder='Mensaje'
+          placeholder="Mensaje"
           value={formData.message}
           onChange={handleChange}
           required
