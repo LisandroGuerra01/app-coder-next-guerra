@@ -1,3 +1,4 @@
+'use client'
 import EditForm from '@/components/admin/EditForm';
 
 const EditPage = async ({ params }) => {
