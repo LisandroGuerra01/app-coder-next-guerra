@@ -3,6 +3,7 @@ import { useState } from "react"
 import Counter from "../Counter"
 import Button from "../Button"
 import { useCartContext } from "../context/CartContext"
+import Swal from 'sweetalert2'
 
 const QtySelector = ({ item }) => {
     const { addToCart } = useCartContext()
@@ -13,7 +14,21 @@ const QtySelector = ({ item }) => {
         addToCart({
             ...item,
             quantity
-        }),quantity === 1 ? alert("Producto añadido") : alert("Productos añadidos")
+        }), quantity === 1 ?
+                Swal.fire({
+                    position: "bottom-end",
+                    icon: "success",
+                    title: "Producto añadido al carrito",
+                    showConfirmButton: false,
+                    timer: 1500
+                }) :
+                Swal.fire({
+                    position: "bottom-end",
+                    icon: "success",
+                    title: "Productos añadidos al carrito",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
     }
 
     return (

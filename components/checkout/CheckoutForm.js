@@ -19,13 +19,14 @@ const createOrder = async (values, items) => {
         date: new Date().toISOString()
     }
 
+
     const docId = Timestamp.fromDate(new Date()).toMillis()
     const orderRef = doc(db, 'orders', String(docId))
     await setDoc(orderRef, order)
     return docId
 }
 
-const ClientForm = () => {
+const CheckoutForm = () => {
     const { cart, emptyCart } = useCartContext()
     const router = useRouter()
 
@@ -35,6 +36,8 @@ const ClientForm = () => {
         telefono: '',
         nombre: '',
     })
+    console.log("values", values);
+
 
     const handleChange = (e) => {
         setValues({
@@ -70,4 +73,4 @@ const ClientForm = () => {
     )
 }
 
-export default ClientForm;
+export default CheckoutForm;

@@ -67,7 +67,7 @@ const CartList = () => {
             <div className="mt-9 flex justify-between">
                 <div>
                     <span className="text-lg font-bold text-gray-600">Total: ${getTotalPrice()}</span>
-                    <Link href={"/client"}>
+                    <Link href={"/checkout"}>
                     <button className="border border-indigo-500 text-gray-600 hover:text-gray-100 px-1 py-1 mx-2 rounded-md hover:bg-indigo-500 transition duration-300">Ir a pagar</button>
                     </Link>
                 </div>
