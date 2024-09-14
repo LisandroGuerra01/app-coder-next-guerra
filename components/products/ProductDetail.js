@@ -34,7 +34,7 @@ const ProductDetail = async ({ slug }) => {
         <section className="flex gap-8">
           <div className="relative basis-1/2">
             <Image
-              src={/products${item.image}} // Ajusta la ruta relativa de la imagen
+              src={`/products${item.image}`} // Ajusta la ruta relativa de la imagen
               alt={item.title}
               width={700}
               height={700}
