@@ -8,7 +8,7 @@ const ProductsTable = async () => {
     try {
         // Utiliza una ruta relativa para la solicitud fetch
         const items = await fetch('/api/products/all', {
-            cache: "no-store",
+            cache: "no-cache",
         })
             .then((res) => {
                 if (!res.ok) {

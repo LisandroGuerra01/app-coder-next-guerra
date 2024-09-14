@@ -7,7 +7,7 @@ const EditPage = async ({ params }) => {
     try {
         // Realiza la solicitud a la API para obtener los datos del producto usando una ruta relativa
         const item = await fetch(`/api/productsSlug/${slug}`, {
-            cache: 'no-store', // 'no-store' evita el cacheo de la respuesta para obtener datos siempre frescos
+            cache: 'no-cache', // 'no-store' evita el cacheo de la respuesta para obtener datos siempre frescos
         }).then(res => {
             if (!res.ok) {
                 // Lanza un error si la respuesta no es exitosa

@@ -7,7 +7,7 @@ const ProductDetail = async ({ slug }) => {
   try {
     // Utiliza una ruta relativa para la solicitud fetch
     const item = await fetch(`/api/productsSlug/${slug}`, {
-      cache: "no-store",
+      cache: "no-cache",
       next: {
         revalidate: 0,
         tags: ["products"],
