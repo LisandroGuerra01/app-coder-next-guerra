@@ -1,3 +1,4 @@
+'use client'
 import ProductCard from './ProductCard';
 
 const ProductList = async ({ category }) => {

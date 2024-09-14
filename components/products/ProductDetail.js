@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import QtySelector from "./QtySelector.js";
 import GoBack from "../GoBack.js";
