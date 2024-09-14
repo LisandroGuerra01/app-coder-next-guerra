@@ -23,7 +23,7 @@ const updateProduct = async (slug, values, file) => {
         category: values.category,
         image: fileURL
     }).then(() => {
-        alert('Product updated successfully')
+        alert('Producto actualizado!')
     }).catch(error => {
         alert(error.message)
     })
