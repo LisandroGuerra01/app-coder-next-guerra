@@ -4,6 +4,8 @@ import Button from '../Button';
 import { useCartContext } from '../context/CartContext';
 import { db } from '@/firebase/config';
 import { setDoc, doc, Timestamp } from 'firebase/firestore';
+import { useRouter } from 'next/navigation';
+import Swal from 'sweetalert2';
 
 const createOrder = async (values, items) => {
     const order = {
@@ -24,7 +26,8 @@ const createOrder = async (values, items) => {
 }
 
 const ClientForm = () => {
-    const { cart } = useCartContext()
+    const { cart, emptyCart } = useCartContext()
+    const router = useRouter()
 
     const [values, setValues] = useState({
         email: '',
@@ -43,7 +46,17 @@ const ClientForm = () => {
     const handeSubmit = async (e) => {
         e.preventDefault()
         const result = await createOrder(values, cart)
-        console.log(result)
+        console.log("result", result)
+        Swal.fire({
+            title: "¡Gracias por tu compra, Que lo disfrutes!",
+            text: `El número de tu orden es: ${result}`,
+            icon: "success",
+            confirmButtonColor: "#7B341E",
+            confirmButtonText: "Volver al inicio",
+        }).then(() => {
+            emptyCart()
+            router.push('/')
+        })
     }
 
     return (

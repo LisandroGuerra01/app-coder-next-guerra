@@ -38,7 +38,7 @@ const CartList = () => {
                             <td>
                                 <Link href={`/products/${item.category}/${item.slug}`}>
                                     <Image
-                                        src={`/products${item.image}`}
+                                        src={item.image}
                                         alt={item.title}
                                         width={100}
                                         height={100} />
