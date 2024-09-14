@@ -86,27 +86,6 @@ export const AuthProvider = ({ children }) => {
         })
     }, [router]);
 
-
-
-    // const resetPassword = (email) => {
-    //     setLoading(true);
-    //     return sendPasswordResetEmail(auth, email);
-    // };
-
-    // const loginFacebook = () => {
-    //     setLoading(true);
-    //     const provider = new FacebookAuthProvider();
-    //     return signInWithPopup(auth, provider);
-    // };
-
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
-    //         setCurrentUser(user);
-    //         setLoading(false);
-    //     });
-    //     return () => unsubscribe();
-    // }, []);
-
     //Renderizando el contexto
     return (
         <AuthContext.Provider value={{ user, signup, loginUser, googleLogin, logout }}>
