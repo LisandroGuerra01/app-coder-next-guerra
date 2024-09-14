@@ -46,7 +46,7 @@ const EditForm = ({ item }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await updateProduct(item.slug, values, file)
-        window.location.href = '/admin'
+        window.location.reload()
     }
 
     return (
