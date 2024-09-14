@@ -16,7 +16,7 @@ const updateProduct = async (slug, values, file) => {
 
     const docRef = doc(db, 'products', slug)
     return updateDoc(docRef, {
-        titlle: values.title,
+        title: values.title,
         description: values.description,
         stock: Number(values.stock),
         price: Number(values.price),
