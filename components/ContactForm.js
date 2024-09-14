@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Button from '@/components/Button';
+import Swal from 'sweetalert2';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -40,10 +41,15 @@ const ContactForm = () => {
         name: '',
         email: '',
         message: '',
-      });
 
-      // Opcional: agregar una notificación o alerta para indicar que el formulario se envió correctamente
-      alert('Formulario enviado con éxito.');
+      })
+
+      // Alerta
+      Swal.fire({
+        title: "Mensaje enviado!",
+        text: "Pronto te responderemos",
+        icon: "success"
+      })
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
       alert('Hubo un problema al enviar el formulario. Por favor, inténtalo de nuevo.');
