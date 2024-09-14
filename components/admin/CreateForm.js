@@ -5,7 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { db, storage } from "@/firebase/config";
 import { v4 as uuidv4 } from 'uuid';
-
+import { useRouter } from 'next/navigation'
 
 const createProduct = async (values) => {
     const id = uuidv4();
@@ -26,6 +26,7 @@ const createProduct = async (values) => {
 }
 
 const CreateForm = () => {
+    const router = useRouter();
     const [values, setValues] = useState({
         title: '',
         description: '',
@@ -56,6 +57,7 @@ const CreateForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await createProduct(values)
+        router.push('/admin')
     }
 
     return (
