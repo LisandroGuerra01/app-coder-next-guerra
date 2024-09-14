@@ -53,12 +53,12 @@ const EditForm = ({ item }) => {
     return (
         <div className="container m-auto mt-6 max-w-lg">
             <form onSubmit={handleSubmit} className="my-12 text-gray-700">
-                <input type="text" name="title" value={values.title} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
+                <input type="text" name="title" value={values.title} onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
                 <input type="file" name="image" onChange={(e) => setFile(e.target.files[0])} className="p-2 rounded w-full border border-indigo-600 block my-4" />
-                <textarea name="description" value={values.description} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
-                <input type="number" name="stock" value={values.stock} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
-                <input type="number" name="price" value={values.price} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
-                <input type="text" name="category" value={values.category} required onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
+                <textarea name="description" value={values.description} onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
+                <input type="number" name="stock" value={values.stock} onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
+                <input type="number" name="price" value={values.price} onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
+                <input type="text" name="category" value={values.category} onChange={handleChange} className="p-2 rounded w-full border border-indigo-600 block my-4" />
                 <Button type="submit" className="text-white">Editar Producto</Button>
             </form>
         </div>
