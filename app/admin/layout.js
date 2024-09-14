@@ -7,7 +7,7 @@ const AdminLayout = ({ children, login }) => {
     return (
         <>
             {
-                user.logged //forzado el login
+                true //forzado el login
                     ? children
                     : login
             }
